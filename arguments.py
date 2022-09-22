@@ -60,13 +60,13 @@ class Val(ArgType):
 
 class Reg(NamedArgType):
     NAME_LOOKUP = {
-        'a': 0x2,
-        'b': 0x10,
-        'c': 0x8,
-        'd': 0x4,
-        's': 0x20,
-        'i': 0x40,
-        'f': 0x1,
+        'a': 0x8,
+        'b': 0x40,
+        'c': 0x20,
+        'd': 0x1,
+        's': 0x10,
+        'i': 0x2,
+        'f': 0x4,
         'NONE': 0x0
     }
     CODE_LOOKUP = dict(zip(NAME_LOOKUP.values(), NAME_LOOKUP.keys()))
@@ -74,12 +74,12 @@ class Reg(NamedArgType):
 
 class Sys(NamedArgType):
     NAME_LOOKUP = {
-        'open': 0x1,
-        'read_code': 0x20,
-        'read_memory': 0x8,
-        'write': 0x4,
-        'sleep': 0x10,
-        'exit': 0x2
+        'open': 0x8,
+        'read_code': 0x4,
+        'read_memory': 0x1,
+        'write': 0x2,
+        'sleep': 0x20,
+        'exit': 0x10
     }
     CODE_LOOKUP = dict(zip(NAME_LOOKUP.values(), NAME_LOOKUP.keys()))
 

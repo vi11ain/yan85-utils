@@ -13,8 +13,8 @@ class InvalidLine(Exception):
 
 INSTRUCTION_BYTEORDER = {
     'opcode': 1,
-    'arg1': 0,
-    'arg2': 2
+    'arg1': 2,
+    'arg2': 0
 }
 
 
@@ -77,7 +77,7 @@ class Instruction:
 
 
 class IMM(Instruction):
-    opcode = 0x40
+    opcode = 0x4
     fmt = "{arg1} = {arg2}"
     arg1_type = Reg
     arg2_type = Val
@@ -91,35 +91,35 @@ class ADD(Instruction):
 
 
 class STK(Instruction):
-    opcode = 0x80
+    opcode = 0x10
     fmt = "POP {arg1}, PUSH {arg2}"
     arg1_type = Reg
     arg2_type = Reg
 
 
 class STM(Instruction):
-    opcode = 0x4
+    opcode = 0x40
     fmt = "*{arg1} = {arg2}"
     arg1_type = Reg
     arg2_type = Reg
 
 
 class LDM(Instruction):
-    opcode = 0x1
+    opcode = 0x8
     fmt = "{arg1} = *{arg2}"
     arg1_type = Reg
     arg2_type = Reg
 
 
 class CMP(Instruction):
-    opcode = 0x10
+    opcode = 0x80
     fmt = "{arg1} {arg2}"
     arg1_type = Reg
     arg2_type = Reg
 
 
 class JMP(Instruction):
-    opcode = 0x8
+    opcode = 0x1
     fmt = "{arg1} {arg2}"
     arg1_type = Con
     arg2_type = Reg
